@@ -11,23 +11,20 @@ class HomeViewModel extends ChangeNotifier {
   bool isLoading = true;
   int _currentPage = 1;
   int _totalPages = 1;
-  bool _isFetching = false;
 
   HomeViewModel(this.service) {
     fetchCharacters();
   }
 
   Future<void> fetchCharacters() async {
-    if (_isFetching || _currentPage > _totalPages) return;
+    if (_currentPage > _totalPages) return;
     isLoading = true;
-    _isFetching = true;
     notifyListeners();
     final page = await service.fetchCharacters(page: _currentPage);
     characters.addAll(page.characters);
     _totalPages = page.totalPages;
     _currentPage++;
     isLoading = false;
-    _isFetching = false;
     notifyListeners();
   }
 
@@ -38,5 +35,5 @@ class HomeViewModel extends ChangeNotifier {
     );
   }
 
-  bool get hasMore => _currentPage <= _totalPages && !_isFetching;
+  bool get hasMore => _currentPage <= _totalPages && !isLoading;
 }

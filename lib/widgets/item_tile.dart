@@ -8,16 +8,16 @@ class ItemTile extends StatelessWidget {
 
   const ItemTile({super.key, required this.item, required this.onTap});
 
-  Color _getStatusColor(String status) {
-    switch (status.toLowerCase()) {
+  Color _getStatusColor(String? status) {
+    switch (status?.toLowerCase()) {
       case 'alive':
-        return Colors.green;
+        return const Color(0xFF4CAF50);
       case 'dead':
-        return Colors.red;
+        return const Color(0xFFF44336);
       case 'unknown':
-        return Colors.orange;
+        return const Color(0xFFFF9800);
       default:
-        return Colors.grey;
+        return const Color(0xFF9E9E9E);
     }
   }
 
@@ -56,8 +56,8 @@ class ItemTile extends StatelessWidget {
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
-                          color: Colors.grey[800],
-                          child: const Icon(Icons.person, color: Colors.white54),
+                          color: const Color(0xFF424242),
+                          child: const Icon(Icons.person, color: Color(0xFF8A8A8A)),
                         );
                       },
                     ),
@@ -90,7 +90,7 @@ class ItemTile extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Text(
-                        item.status.toUpperCase(),
+                        (item.status).toUpperCase(),
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -103,12 +103,12 @@ class ItemTile extends StatelessWidget {
                       item.species,
                       style: Theme.of(
                         context,
-                      ).textTheme.bodyMedium?.copyWith(color: Colors.white70),
+                      ).textTheme.bodyMedium?.copyWith(color: const Color(0xFFB3B3B3)),
                     ),
                   ],
                 ),
               ),
-              const Icon(Icons.arrow_forward_ios, color: Colors.white54, size: 16),
+              const Icon(Icons.arrow_forward_ios, color: Color(0xFF8A8A8A), size: 16),
             ],
           ),
         ),

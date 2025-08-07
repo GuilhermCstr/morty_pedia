@@ -16,19 +16,7 @@ class CharacterService {
       final List results = data['results'];
       final info = data['info'];
       return CharacterPageModel(
-        characters: results
-            .map(
-              (json) => CharacterModel(
-                id: json['id'],
-                name: json['name'] ?? '',
-                status: json['status'] ?? '',
-                species: json['species'] ?? '',
-                image: json['image'] ?? '',
-                origin: json['origin']['name'] ?? '',
-                gender: json['gender'] ?? 'Sem gênero',
-              ),
-            )
-            .toList(),
+        characters: results.map((json) => CharacterModel.fromJson(json)).toList(),
         totalPages: info['pages'] ?? 1,
         currentPage: page,
       );

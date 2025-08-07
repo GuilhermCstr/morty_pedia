@@ -6,11 +6,11 @@ import 'views/home/home_view.dart';
 import 'views/home/home_viewmodel.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MortyPediaApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MortyPediaApp extends StatelessWidget {
+  const MortyPediaApp({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,24 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/info_row.dart';
 import 'detail_viewmodel.dart';
 
 class DetailView extends StatelessWidget {
   final DetailViewModel viewModel;
 
   const DetailView({super.key, required this.viewModel});
-
-  Color _getStatusColor(String status) {
-    switch (status.toLowerCase()) {
-      case 'alive':
-        return Colors.green;
-      case 'dead':
-        return Colors.red;
-      case 'unknown':
-        return Colors.orange;
-      default:
-        return Colors.grey;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +54,8 @@ class DetailView extends StatelessWidget {
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
-                        color: Colors.grey[800],
-                        child: const Icon(Icons.person, size: 100, color: Colors.white54),
+                        color: const Color(0xFF424242),
+                        child: const Icon(Icons.person, size: 100, color: Color(0xFF8A8A8A)),
                       );
                     },
                   ),
@@ -81,23 +69,23 @@ class DetailView extends StatelessWidget {
                 children: [
                   const SizedBox(height: 20),
 
-                  _buildInfoRow('Espécie', item.species),
+                  InfoRow(label: 'Espécie', value: item.species),
                   const SizedBox(height: 16),
 
-                  _buildInfoRow('Origin:', item.origin),
+                  InfoRow(label: 'Origin:', value: item.origin),
                   const SizedBox(height: 16),
 
-                  _buildInfoRow('Gender:', item.gender),
+                  InfoRow(label: 'Gender:', value: item.gender),
                   const SizedBox(height: 16),
                   Center(
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 8),
                       decoration: BoxDecoration(
-                        color: _getStatusColor(item.status),
+                        color: viewModel.getStatusColor(item.status),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
-                        item.status.toUpperCase(),
+                        (item.status).toUpperCase(),
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -112,23 +100,6 @@ class DetailView extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildInfoRow(String label, String value) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: const TextStyle(color: Colors.white70, fontSize: 14, fontWeight: FontWeight.w500),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          value,
-          style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
-        ),
-      ],
     );
   }
 }
