@@ -1,4 +1,5 @@
 class CharacterModel {
+  final int id;
   final String name;
   final String status;
   final String species;
@@ -7,6 +8,7 @@ class CharacterModel {
   final String gender;
 
   CharacterModel({
+    required this.id,
     required this.name,
     required this.status,
     required this.species,

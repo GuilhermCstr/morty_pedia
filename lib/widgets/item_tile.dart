@@ -35,7 +35,7 @@ class ItemTile extends StatelessWidget {
           child: Row(
             children: [
               Hero(
-                tag: 'character_image_${item.name}',
+                tag: 'character_image_${item.name}_${item.id}',
                 child: Container(
                   width: 60,
                   height: 60,
@@ -70,7 +70,7 @@ class ItemTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Hero(
-                      tag: 'character_name_${item.name}',
+                      tag: 'character_name_${item.name}_${item.id}',
                       child: Material(
                         color: Colors.transparent,
                         child: Text(

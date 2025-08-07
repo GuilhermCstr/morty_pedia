@@ -19,6 +19,7 @@ class CharacterService {
         characters: results
             .map(
               (json) => CharacterModel(
+                id: json['id'],
                 name: json['name'] ?? '',
                 status: json['status'] ?? '',
                 species: json['species'] ?? '',

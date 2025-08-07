@@ -18,7 +18,6 @@ final ThemeData rickAndMortyTheme = ThemeData(
     centerTitle: true,
   ),
   textTheme: const TextTheme(
-    headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 255, 255)),
     headlineMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
     titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white),
     bodyLarge: TextStyle(fontSize: 16, color: Colors.white),
@@ -30,17 +29,4 @@ final ThemeData rickAndMortyTheme = ThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
   ),
-  floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: Color(0xFF00FFB3),
-    foregroundColor: Colors.black,
-  ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: const Color(0xFF8B5CF6),
-      foregroundColor: Colors.white,
-      textStyle: const TextStyle(fontWeight: FontWeight.bold),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-    ),
-  ),
-  progressIndicatorTheme: const ProgressIndicatorThemeData(color: Color(0xFF00FFB3)),
 );

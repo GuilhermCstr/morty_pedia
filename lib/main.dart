@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
     final homeViewModel = HomeViewModel(CharacterService());
     return MaterialApp(
       title: 'Morty Pedia',
+      debugShowCheckedModeBanner: false,
       theme: rickAndMortyTheme,
       home: HomeView(viewModel: homeViewModel),
     );

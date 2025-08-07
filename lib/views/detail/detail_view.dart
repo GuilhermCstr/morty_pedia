@@ -26,10 +26,15 @@ class DetailView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Hero(
-          tag: 'character_name_${item.name}',
+          tag: 'character_name_${item.name}_${item.id}',
           child: Material(
             color: Colors.transparent,
-            child: Text(item.name, style: Theme.of(context).textTheme.headlineLarge),
+            child: Text(
+              item.name,
+              style: Theme.of(context).textTheme.headlineMedium,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
           ),
         ),
       ),
@@ -38,7 +43,7 @@ class DetailView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Hero(
-              tag: 'character_image_${item.name}',
+              tag: 'character_image_${item.name}_${item.id}',
               child: Container(
                 width: double.infinity,
                 height: 300,
